@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today in News: 10 years ago</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+  </head>
+
+  <body ng-app = "updater" ng-controller = "updaterController">
+    
+    <script type="text/javascript" src = "app.js"></script>
+
+    <div class="page-header">
+      <h1>Backtrack in History 
+        <br>
+          <small>News 10 years ago today</small>
+        </br>
+      </h1>
+    </div>
+
+    <div class="jumbotron" id = "container">
+      <!-- <h3>{{result.response.docs[0].headline.main}}</h3> -->
+      <h2>{{tlt}}</h2>
+      <br></br>
+      <!-- <p>{{result.response.docs[0].abstract}}</p> -->
+      <h4>Abstract: <br></br>{{abstract}}</h4>
+      <br></br>
+      <p class = 'leadp'>{{leadP}}</p>
+      <br></br>
+      <p>Article Source: {{url}}</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button" ng-click = 'lookup()'>Print Stuff</a>
+      </p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button" ng-click = 'nextArticle()'>Next Article</a>
+      </p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button" ng-click = 'lastArticle()'>Previous Article</a>
+      </p>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+  </body>
+</html>

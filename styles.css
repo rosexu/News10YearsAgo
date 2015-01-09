@@ -1,0 +1,19 @@
+#container {
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-right: 250px;
+	padding: 30px;
+	border-radius: 15px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.leadp {
+	text-indent: 2.5em;
+}
+
+h2{
+	text-align: center;
+}
