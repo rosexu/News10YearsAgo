@@ -4,6 +4,7 @@
 	margin-right: 250px;
 	padding: 30px;
 	border-radius: 15px;
+	/*text-align: center;*/
 }
 
 h1 {
@@ -16,4 +17,15 @@ h1 {
 
 h2{
 	text-align: center;
+}
+
+#buttonWrapper {
+	text-align: center;
+}
+
+.btn-group{
+	margin: 0 auto;
+	text-align: center;
+	width: inherit;
+	display: inline-block;
 }

@@ -1,57 +1,59 @@
 angular.module('updater', [])
 	.controller('updaterController', ['$scope', '$http', function ($scope, $http){
 
-		$scope.today = new Date();
-		$scope.dd = $scope.today.getDate();
-		$scope.mm = $scope.today.getMonth()+1;
-		$scope.yyyy = $scope.today.getFullYear();
-		$scope.apikey = "42cbece91ba48a52679069d8e3aa9462%3A12%3A70689096";
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
+		var apikey = "42cbece91ba48a52679069d8e3aa9462%3A12%3A70689096";
 		$scope.result = {};
 		$scope.tlt = {};
 		$scope.abstract = {};
 		$scope.leadP = {};
 		$scope.url = {};
+		$scope.numArticles = 0;
 		var counter = 0;
 
 		$scope.printDay = function() {
-			console.log($scope.dd);
+			console.log(dd);
 		};
 		$scope.printMonth = function() {
-			console.log($scope.mm);
+			console.log(mm);
 		};
 		$scope.printYear = function() {
-			console.log($scope.yyyy);
+			console.log(yyyy);
 		};
 
 		//get the date 10 years ago today in yyyymmdd format
 		$scope.get10YearsAgo = function(){
-			if($scope.dd < 10){
-				newDay = '0' + $scope.dd;
+			if(dd < 10){
+				newDay = '0' + dd;
 			}
 			else {
-				newDay = $scope.dd;
+				newDay = dd;
 			}
 
-			if ($scope.mm<10){
-				newMonth = '0' + $scope.mm;
+			if (mm<10){
+				newMonth = '0' + mm;
 			}
 			else{
-				newMonth = $scope.mm;
+				newMonth = mm;
 			}
 
-			var newYear = $scope.yyyy-10;
+			var newYear = yyyy-10;
 
 			return (newYear + newMonth + newDay);
 		};
 
 		$scope.lookup = function(){
-			$http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=' + $scope.get10YearsAgo() + '&end_date=' + $scope.get10YearsAgo() + '&sort=newest&api-key=' + $scope.apikey)
+			$http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=' + $scope.get10YearsAgo() + '&end_date=' + $scope.get10YearsAgo() + '&sort=newest&api-key=' + apikey)
 				.then(function (rsponse){
 					$scope.result = rsponse.data;
 					$scope.tlt = $scope.result.response.docs[counter].headline.main;
 					$scope.abstract = $scope.result.response.docs[counter].abstract;
 					$scope.leadP = $scope.result.response.docs[counter].lead_paragraph;
 					$scope.url = $scope.result.response.docs[counter].web_url;
+					$scope.numArticles = $scope.result.response.docs.length;
 				})
 				.catch(function (){
 					console.log("something went wrong with info retrieval");
@@ -75,11 +77,6 @@ angular.module('updater', [])
 
 		};
 
-		/*$scope.getResult = function(){
-			$scope.lookup();
-			$scope.answer = $scope.result.response.meta;
-		};*/
-
-
+		$scope.lookup();
 
 	}]);
