@@ -11,7 +11,7 @@ angular.module('updater', [])
 		$scope.abstract = {};
 		$scope.leadP = {};
 		$scope.url = {};
-		$scope.numArticles = 0;
+		var numArticles = 0;
 		var counter = 0;
 
 		$scope.printDay = function() {
@@ -53,7 +53,7 @@ angular.module('updater', [])
 					$scope.abstract = $scope.result.response.docs[counter].abstract;
 					$scope.leadP = $scope.result.response.docs[counter].lead_paragraph;
 					$scope.url = $scope.result.response.docs[counter].web_url;
-					$scope.numArticles = $scope.result.response.docs.length;
+					numArticles = $scope.result.response.docs.length;
 				})
 				.catch(function (){
 					console.log("something went wrong with info retrieval");
@@ -75,6 +75,14 @@ angular.module('updater', [])
 			$scope.leadP = $scope.result.response.docs[counter].lead_paragraph;
 			$scope.url = $scope.result.response.docs[counter].web_url;
 
+		};
+
+		$scope.isFirstArt = function() {
+			return (counter === 0);
+		};
+
+		$scope.isLastArt = function() {
+			return (counter >= (numArticles - 1));
 		};
 
 		$scope.lookup();

@@ -4,7 +4,6 @@
 	margin-right: 250px;
 	padding: 30px;
 	border-radius: 15px;
-	/*text-align: center;*/
 }
 
 h1 {
@@ -28,4 +27,13 @@ h2{
 	text-align: center;
 	width: inherit;
 	display: inline-block;
+}
+
+.color {
+	color: white;
+}
+
+body{
+	background-image: url('images/Cabin2.JPG');
+	background-size: cover;
 }

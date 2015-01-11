@@ -30,16 +30,16 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">FAQ</a></li>
+            <li><a href="faq.html">FAQ</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 
     <div class="page-header">
-      <h1>Backtrack in History 
+      <h1 class = 'color'>Backtrack in History 
         <br>
-          <small>News 10 years ago today</small>
+          <small class = 'color'>News 10 years ago today</small>
         </br>
       </h1>
     </div>
@@ -55,8 +55,8 @@
       <br></br>
       <div id = "buttonWrapper">
         <div class = "btn-group">
-          <a class="btn btn-primary btn-lg" href="#" role="button" ng-click = 'lastArticle()'>Last Article</a>
-          <a class="btn btn-primary btn-lg" href="#" role="button" ng-click = 'nextArticle()'>Next Article</a>
+          <a class="btn btn-primary btn-lg" ng-disabled = "isFirstArt()" href="#" role="button" ng-click = 'lastArticle()'>Last Article</a>
+          <a class="btn btn-primary btn-lg" ng-disabled = "isLastArt()" href="#" role="button" ng-click = 'nextArticle()'>Next Article</a>
         </div>
       </div>
     </div>
